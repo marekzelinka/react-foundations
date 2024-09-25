@@ -9,15 +9,33 @@
     <script type="text/jsx">
       const app = document.getElementById('app')
 
-      function Header() {
-        return <h1>Develop. Preview. Ship.</h1>
+      function Header({ title }) {
+        return <h1>{title || "Default title"}</h1>
       }
 
       function HomePage() {
+        const names = [
+          "Ada Lovelace",
+          "Grace Hopper",
+          "Margaret Hamilton",
+          "Ada Lovelace"
+        ]
+
         return (
           <div>
             {/* Nesting React components */}
-            <Header />
+            <Header title="React" />
+            <Header title="Vue.js" />
+            <Header title="Angular" />
+            <Header title="Ember.js" />
+            <Header title="Svelte" />
+            {/* Rendering lists */}
+            <h2>My friends:</h2>
+            <ul>
+              {names.map((name, i) => (
+                <li key={i}>{name}</li>
+              ))}
+            </ul>
           </div>
         )
       }
